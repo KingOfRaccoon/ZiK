@@ -2,21 +2,26 @@ package com.kingofraccoon.zik.request;
 
 import java.util.Date;
 
+import com.kingofraccoon.zik.place.Place;
+import com.kingofraccoon.zik.transport.NoDriverException;
+import com.kingofraccoon.zik.transport.Transport;
 import com.kingofraccoon.zik.users.User;
 
 import org.jetbrains.annotations.NotNull;
 
 public class Request {
     private CargoStatus status;
+    final private int serviceCode;
+    private String cargoInfo;
 
-    final private byte departurePoint;
-    final private byte receptionPoint;
+    final private Place placeOfDeparture;
+    final private Place placeOfReceipt;
 
     final private User initiator;
     final private User creator;
     final User cargoSender;
     final User cargoRecipient;
-    User driver;
+    Transport transport;
 
     final private Date createTime;
     private Date arriveTime;
@@ -24,9 +29,13 @@ public class Request {
     private String reasonOfCanceling;
     private String commentOnCanceling;
 
-    public Request(User initiator, User creator, User cargoSender, User cargoRecipient, byte departurePoint, byte receptionPoint) {
-        this.departurePoint = departurePoint;
-        this.receptionPoint = receptionPoint;
+    public Request(Place placeOfDeparture, Place placeOfReceipt, int serviceCode,
+                   User initiator, User creator, User cargoSender, User cargoRecipient) {
+        this.serviceCode = serviceCode;
+        this.cargoInfo = "";
+
+        this.placeOfDeparture = placeOfDeparture;
+        this.placeOfReceipt = placeOfReceipt;
 
         this.initiator = initiator;
         this.creator = creator;
@@ -37,11 +46,39 @@ public class Request {
 
         status = CargoStatus.CREATED;
     }
+    public Request(Place placeOfDeparture, Place placeOfReception, int serviceCode,
+                   User initiator, User creator, User cargoSender,
+                   User cargoRecipient, String cargoInfo) {
+        this(placeOfDeparture, placeOfReception, serviceCode, initiator,
+                creator, cargoSender, cargoRecipient);
+        this.cargoInfo = cargoInfo;
+    }
+
+    public Request(Place placeOfDeparture, Place placeOfReception, int serviceCode, User creator,
+                   User cargoSender, User cargoRecipient) {
+        this(placeOfDeparture, placeOfReception, serviceCode,
+                creator, creator, cargoSender, cargoRecipient);
+    }
+
+    public Request(Place placeOfDeparture, Place placeOfReception, int serviceCode,
+                   User creator, User cargoSender, User cargoRecipient, String cargoInfo) {
+        this(placeOfDeparture, placeOfReception, serviceCode,
+                creator, cargoSender, cargoRecipient);
+        this.cargoInfo = cargoInfo;
+    }
 
     //Сеттеры лучше не использовать, т.к. статус отправки не учитывается
 
     public long getNumber() {
         return createTime.getTime();
+    }
+
+    public String getCargoInfo() {
+        return cargoInfo;
+    }
+
+    public int getServiceCode() {
+        return serviceCode;
     }
 
     public Date getCreateTime() {
@@ -52,12 +89,12 @@ public class Request {
         return arriveTime;
     }
 
-    public byte getDeparturePoint() {
-        return departurePoint;
+    public Place getPlaceOfDeparture() {
+        return placeOfDeparture;
     }
 
-    public byte getReceptionPoint() {
-        return receptionPoint;
+    public Place getPlaceOfReceipt() {
+        return placeOfReceipt;
     }
 
     public CargoStatus getStatus() {
@@ -80,8 +117,8 @@ public class Request {
         return cargoRecipient;
     }
 
-    public User getDriver() {
-        return driver;
+    public Transport getTransport() {
+        return transport;
     }
 
     public String getReasonOfCanceling() {
@@ -93,9 +130,14 @@ public class Request {
     }
 
 
-
-    public void approve(User driver, @NotNull Date arriveTime) {
-        this.driver = driver;
+    public void approve(Transport transport, @NotNull Date arriveTime) throws NoDriverException {
+        /*Нужно либо здесь сделать проверку на наличие водителя, либо выше.
+        Сейчас пока что здесь, должен быть водитель, иначе будет вызываться NoDriverException
+         */
+        if(!transport.hasDriver()){
+            throw new NoDriverException("Нет водителя в машине, заявка не может быть обработана");
+        }
+        this.transport = transport;
         status = CargoStatus.ACCEPTED;
         if (createTime.equals(arriveTime)) {
             this.arriveTime = new Date(createTime.getTime() + 600000);
