@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "916730886498",
+    "firebase_url": "https://ziik-48d70.firebaseio.com",
+    "project_id": "ziik-48d70",
+    "storage_bucket": "ziik-48d70.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:916730886498:android:e10703a4645e01ec99543b",
+        "android_client_info": {
+          "package_name": "com.kingofraccoon.zik"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "916730886498-b61iq7ugs7uq4m670k0aog16modgl7u7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHbR_YDncuJpFaCC9_y9KkvLPPqKamFt0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "916730886498-b61iq7ugs7uq4m670k0aog16modgl7u7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
