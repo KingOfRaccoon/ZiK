@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">ZiK</string>
+    <string name="enter_akk">Вход в аккаунт</string>
+    <string name="login">Логин:</string>
+    <string name="enter">Вход</string>
+    <string name="confirmation">Подтверждение</string>
+    <string name="sms">SMS код</string>
+    <string name="send">Отправить</string>
 </resources>
