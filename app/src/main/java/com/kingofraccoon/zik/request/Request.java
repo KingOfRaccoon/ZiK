@@ -22,7 +22,7 @@ public class Request {
     private Date arriveTime;
 
     private String reasonOfCanceling;
-    private String commentOfCanceling;
+    private String commentOnCanceling;
 
     public Request(User initiator, User creator, User cargoSender, User cargoRecipient, byte departurePoint, byte receptionPoint) {
         this.departurePoint = departurePoint;
@@ -84,10 +84,20 @@ public class Request {
         return driver;
     }
 
+    public String getReasonOfCanceling() {
+        return reasonOfCanceling;
+    }
+
+    public String getCommentOnCanceling() {
+        return commentOnCanceling;
+    }
+
+
+
     public void approve(User driver, @NotNull Date arriveTime) {
         this.driver = driver;
         status = CargoStatus.ACCEPTED;
-        if (arriveTime.equals(createTime)) {
+        if (createTime.equals(arriveTime)) {
             this.arriveTime = new Date(createTime.getTime() + 600000);
         } else {
             this.arriveTime = arriveTime;
@@ -101,7 +111,7 @@ public class Request {
     public void cancel(String reason, String comment) {
         status = CargoStatus.CANCELED;
         reasonOfCanceling = reason;
-        commentOfCanceling = comment;
+        commentOnCanceling = comment;
     }
 
     public void done() {
