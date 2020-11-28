@@ -4,6 +4,8 @@ import java.util.Date;
 
 import com.kingofraccoon.zik.users.User;
 
+import org.jetbrains.annotations.NotNull;
+
 public class Request {
     private CargoStatus status;
 
@@ -18,6 +20,9 @@ public class Request {
 
     final private Date createTime;
     private Date arriveTime;
+
+    private String reasonOfCanceling;
+    private String commentOfCanceling;
 
     public Request(User initiator, User creator, User cargoSender, User cargoRecipient, byte departurePoint, byte receptionPoint) {
         this.departurePoint = departurePoint;
@@ -79,7 +84,7 @@ public class Request {
         return driver;
     }
 
-    public void approve(User driver, Date arriveTime) {
+    public void approve(User driver, @NotNull Date arriveTime) {
         this.driver = driver;
         status = CargoStatus.ACCEPTED;
         if (arriveTime.equals(createTime)) {
@@ -94,7 +99,9 @@ public class Request {
     }
 
     public void cancel(String reason, String comment) {
-
+        status = CargoStatus.CANCELED;
+        reasonOfCanceling = reason;
+        commentOfCanceling = comment;
     }
 
     public void done() {
