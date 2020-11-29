@@ -20,7 +20,7 @@ class CheckKodFragment(var kod: Int): Fragment() {
         val button : Button = view.findViewById(R.id.button_check_kod)
         button.setOnClickListener {
             if (editText.text.toString().toInt() == kod){
-                Toast.makeText(requireContext(), "True", Toast.LENGTH_SHORT).show()
+//                Toast.makeText(requireContext(), "True", Toast.LENGTH_SHORT).show()
                 requireFragmentManager().beginTransaction()
                         .replace(R.id.frame, MainFragment())
                         .commit()

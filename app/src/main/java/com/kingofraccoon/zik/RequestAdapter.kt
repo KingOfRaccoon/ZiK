@@ -40,7 +40,8 @@ class RequestAdapter: RecyclerView.Adapter<RequestAdapter.Companion.RequestViewH
             val status : TextView = view.findViewById(R.id.status)
             fun bind(request: Request){
                 id.text = request.serviceCode.toString()
-//                time.text = request.createTime.toString()
+                subdivision.text = request.subdivision
+                time.text = request.createTime.toString()
                 status.text = request.cargoInfo
             }
         }

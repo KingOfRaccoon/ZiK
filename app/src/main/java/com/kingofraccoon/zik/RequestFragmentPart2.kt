@@ -15,6 +15,7 @@ import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.kingofraccoon.zik.CreateRequest.places
 import com.kingofraccoon.zik.request.Request
+import java.time.LocalDate
 import java.time.LocalTime
 
 class RequestFragmentPart2: Fragment() {
@@ -97,7 +98,7 @@ class RequestFragmentPart2: Fragment() {
         button.setOnClickListener {
             places.add(CreateRequest.createFirstPlace())
             places.add(CreateRequest.createSecondPlace())
-            request = Request(places.first(), places.last())
+            request = Request(places.first(), places.last()).apply { subdivision = CreateRequest.subdivision }
             val req = hashMapOf(
                     "firstBody" to request.placeOfDeparture.building,
                     "firstGoal" to request.placeOfDeparture.gates,
@@ -106,7 +107,8 @@ class RequestFragmentPart2: Fragment() {
                     "secondGoal" to request.placeOfReceipt.gates,
                     "secondPRP" to request.placeOfReceipt.prp,
                     "status" to request.status,
-                    "time" to "${(0..11).random()}"
+                    "time" to "${LocalDate.now()}",
+                    "dis" to request.subdivision
             )
 
             db.collection("users").document("request")

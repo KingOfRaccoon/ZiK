@@ -74,10 +74,10 @@ class HistoryFragment: Fragment() {
                                                                 value.get("secondBody") as String
                                                         )
                                                 ).apply {
+                                                    this.subdivision = value.getString("dis")
                                                     this.cargoInfo = value.get("status") as String;
-//                                                    this.createTime = SimpleDateFormat("yyyy-mm-dd")
-//                                                            .parse(value.get("time") as String, ParsePosition(0))
-                                                    this.serviceCode = (value.get("time") as String).toInt()
+                                                    this.createTime = SimpleDateFormat("yyyy-mm-dd")
+                                                            .parse(value.get("time") as String, ParsePosition(0))
                                                 }
                                         )
                                 )

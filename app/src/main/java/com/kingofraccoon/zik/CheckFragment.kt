@@ -54,7 +54,7 @@ class CheckFragment: Fragment() {
     }
     fun check(number_people: EditText, check: Boolean){
         if (check) {
-            requireContext().setToast("True")
+//            requireContext().setToast("True")
             val notificationManager = requireActivity().getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {

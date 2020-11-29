@@ -28,6 +28,7 @@ public class Request {
 
     private String reasonOfCanceling;
     private String commentOnCanceling;
+    private String subdivision;
 
     public Request(Place placeOfDeparture, Place placeOfReceipt, int serviceCode,
                    User initiator, User creator, User cargoSender, User cargoRecipient) {
@@ -176,5 +177,13 @@ public class Request {
 
     public void done() {
         status = CargoStatus.FINISHED;
+    }
+
+    public String getSubdivision() {
+        return subdivision;
+    }
+
+    public void setSubdivision(String subdivision) {
+        this.subdivision = subdivision;
     }
 }
