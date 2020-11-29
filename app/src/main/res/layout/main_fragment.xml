@@ -3,18 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <com.google.android.material.tabs.TabLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/tabs"
-        tools:ignore="MissingConstraints" />
-    <androidx.viewpager2.widget.ViewPager2
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:id="@+id/viewpager2"
-        app:layout_constraintTop_toBottomOf="@id/tabs"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bnv"
+        android:id="@+id/main_frame"/>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bnv"
+        app:menu="@menu/bottom_navigation_view"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

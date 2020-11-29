@@ -6,4 +6,11 @@
     <string name="confirmation">Подтверждение</string>
     <string name="sms">SMS код</string>
     <string name="send">Отправить</string>
+    <string name="calculate">Рассчитать</string>
+    <string name="request">Заявка</string>
+    <string name="history">История</string>
+    <string name="body">Корпус</string>
+    <string name="goal">Ворота</string>
+    <string name="PRP">ПРП</string>
+    <string name="subdivision">Подразделение</string>
 </resources>

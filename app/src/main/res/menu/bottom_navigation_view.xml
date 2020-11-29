@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/request"
+        android:checked="false"
+        android:title="@string/request"
+        android:icon="@drawable/request_add"
+        />
+    <item
+        android:id="@+id/history"
+        android:checked="false"
+        android:title="@string/history"
+        android:icon="@drawable/history"
+        />
+</menu>
