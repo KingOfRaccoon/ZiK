@@ -1,36 +1,36 @@
 package com.kingofraccoon.zik.place;
 
 public class Place {
-    private byte PRP;
-    private int gates;
-    private int building;
-    public Place(byte PRP, int gates, int building) {
+    private String PRP;
+    private String gates;
+    private String building;
+    public Place(String PRP, String gates, String building) {
         this.PRP = PRP;
         this.gates = gates;
         this.building = building;
     }
 
-    public void setPRP(byte PRP) {
+    public void setPRP(String PRP) {
         this.PRP = PRP;
     }
 
-    public byte getPRP() {
+    public String getPRP() {
         return PRP;
     }
 
-    public void setBuilding(int building) {
+    public void setBuilding(String building) {
         this.building = building;
     }
 
-    public int getBuilding() {
+    public String getBuilding() {
         return building;
     }
 
-    public int getGates() {
+    public String getGates() {
         return gates;
     }
 
-    public void setGates(int gates) {
+    public void setGates(String gates) {
         this.gates = gates;
     }
 }

@@ -13,4 +13,26 @@
     <string name="goal">Ворота</string>
     <string name="PRP">ПРП</string>
     <string name="subdivision">Подразделение</string>
+
+    <string-array name="bodyString">
+        <item>Кабинет 31</item>
+        <item>Кабинет 32</item>
+        <item>Кабинет 42</item>
+        <item>Лестница 1</item>
+    </string-array>
+
+    <string-array name="goalString">
+        <item>Двери кабинета 31</item>
+        <item>Двери кабинета 32</item>
+        <item>Двери кабинета 42</item>
+        <item>Дверь на лестницу 1</item>
+    </string-array>
+
+    <string-array name="prpString">
+        <item>Стол в кабинете 31</item>
+        <item>Стол в кабинете 32</item>
+        <item>Стол в кабинете 42</item>
+        <item>Ступени лестницы 1</item>
+    </string-array>
+
 </resources>

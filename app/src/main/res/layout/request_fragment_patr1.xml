@@ -24,11 +24,15 @@
             android:layout_height="wrap_content"
             android:id="@+id/text_first_group"
             android:text="@string/body"
-            tools:ignore="MissingConstraints" />
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            tools:ignore="MissingConstraints"
+            app:layout_constraintBottom_toTopOf="@id/spinner_first_group"/>
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/spinner_first_group"
+            app:layout_constraintTop_toBottomOf="@id/text_first_group"
             tools:ignore="MissingConstraints" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -45,11 +49,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/text_second_group"
+            app:layout_constraintBottom_toTopOf="@id/spinner_second_group"
+            android:textColor="@color/black"
+            android:textSize="18dp"
             tools:ignore="MissingConstraints" />
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/spinner_second_group"
+            app:layout_constraintTop_toBottomOf="@id/text_second_group"
             tools:ignore="MissingConstraints" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -65,11 +73,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/text_third_Group"
+            app:layout_constraintBottom_toTopOf="@id/spinner_third_Group"
+            android:textColor="@color/black"
+            android:textSize="18dp"
             tools:ignore="MissingConstraints" />
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/spinner_third_Group"
+            app:layout_constraintTop_toBottomOf="@id/text_third_Group"
             tools:ignore="MissingConstraints" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
