@@ -17,7 +17,7 @@ class RequestFragment: Fragment() {
         viewPager2.adapter = ViewPager2FragmentAdapter(this)
         TabLayoutMediator(tabLayout, viewPager2){ tab: TabLayout.Tab, i: Int ->
             when(i){
-                0 -> tab.text = "Исполнитель"
+                0 -> tab.text = "Инициатор"
                 1 -> tab.text = "Получатель"
             }
             viewPager2.currentItem = i

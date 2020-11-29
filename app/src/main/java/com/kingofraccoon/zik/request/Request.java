@@ -11,19 +11,19 @@ import org.jetbrains.annotations.NotNull;
 
 public class Request {
     private CargoStatus status;
-    final private int serviceCode;
+    private int serviceCode;
     private String cargoInfo;
 
     final private Place placeOfDeparture;
     final private Place placeOfReceipt;
 
-    final private User initiator;
-    final private User creator;
-    final User cargoSender;
-    final User cargoRecipient;
+    private User initiator;
+    private User creator;
+    User cargoSender;
+    User cargoRecipient;
     Transport transport;
 
-    final private Date createTime;
+    private Date createTime;
     private Date arriveTime;
 
     private String reasonOfCanceling;
@@ -66,6 +66,12 @@ public class Request {
                 creator, cargoSender, cargoRecipient);
         this.cargoInfo = cargoInfo;
     }
+    public Request(Place placeSend, Place placeGet){
+        this.placeOfDeparture = placeSend;
+        this.placeOfReceipt = placeGet;
+
+        status = CargoStatus.CREATED;
+    }
 
     //Сеттеры лучше не использовать, т.к. статус отправки не учитывается
 
@@ -73,8 +79,16 @@ public class Request {
         return createTime.getTime();
     }
 
+    public void setServiceCode(int serviceCode) {
+        this.serviceCode = serviceCode;
+    }
+
     public String getCargoInfo() {
         return cargoInfo;
+    }
+
+    public void setCargoInfo(String cargoInfo) {
+        this.cargoInfo = cargoInfo;
     }
 
     public int getServiceCode() {
@@ -83,6 +97,10 @@ public class Request {
 
     public Date getCreateTime() {
         return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     public Date getArriveTime() {

@@ -8,14 +8,14 @@ import android.widget.AdapterView
 import android.widget.Spinner
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.kingofraccoon.zik.CreateRequest.bodyFirst
+import com.kingofraccoon.zik.CreateRequest.goalFirst
+import com.kingofraccoon.zik.CreateRequest.prpFirst
 
 class RequestFragmentPart1 : Fragment() {
     val def_body = "Введите корпус:"
     val def_goal = "Введите ворота:"
-    val def_prp = "Введите погрузочно-разгрузочную площадку:"
-    var body = ""
-    var goal = ""
-    var prp = ""
+    val def_prp = "Введите ПРП:"
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.request_fragment_patr1, container, false)
@@ -40,7 +40,7 @@ class RequestFragmentPart1 : Fragment() {
         firstSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 if (firstSpinner.selectedItem != def_body)
-                    body = bodies[position]
+                    bodyFirst = bodies[position]
             }
             override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
@@ -53,7 +53,7 @@ class RequestFragmentPart1 : Fragment() {
         secondSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 if (secondSpinner.selectedItem != def_goal)
-                    goal = goals[position]
+                    goalFirst = goals[position]
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {}
@@ -67,7 +67,7 @@ class RequestFragmentPart1 : Fragment() {
         thirdSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 if (thirdSpinner.selectedItem != def_prp)
-                    prp = prps[position]
+                    prpFirst = prps[position]
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {}

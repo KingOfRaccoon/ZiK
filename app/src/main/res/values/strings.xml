@@ -35,4 +35,10 @@
         <item>Ступени лестницы 1</item>
     </string-array>
 
+    <string-array name="subdivisionString">
+        <item>IT-Квант</item>
+        <item>VR/AR</item>
+        <item>Гео-Квантум</item>
+        <item>Аэро-Квантум</item>
+    </string-array>
 </resources>
